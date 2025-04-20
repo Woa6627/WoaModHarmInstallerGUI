@@ -118,9 +118,13 @@ namespace WoaModHarmInstallerGUI
         {
             if(File.Exists("repo.exe"))
             {
+                AppendSTDOUT("Launching REPO.exe");
                 Process process = new Process();
                 process.StartInfo.FileName = "repo.exe";
                 process.Start();
+                AppendSTDOUT("Successfully launched REPO.exe\nInstaller will now close automatically in 5 seconds");
+                Thread.Sleep(5000);
+                Environment.Exit(0);
             }
         }
     }
