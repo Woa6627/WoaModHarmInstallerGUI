@@ -1,1 +1,1 @@
-﻿https://github.com/Woa6627/WoaModHarmInstallerGUI/releases/download/InstallerGUIV0.0.1/WoaModHarmInstallerGUI.exe
+﻿https://github.com/Woa6627/WoaModHarmInstallerGUI/releases/download/GUIInstallerV0.0.1/WoaModHarmInstallerGUI.exe
