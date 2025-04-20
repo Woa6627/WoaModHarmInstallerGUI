@@ -36,6 +36,7 @@
             DEBUG_CHECK = new CheckBox();
             EXIT_BTN = new Button();
             Output = new RichTextBox();
+            LAUNCHGAME = new Button();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -66,6 +67,7 @@
             flowLayoutPanel1.Controls.Add(Install_BTN);
             flowLayoutPanel1.Controls.Add(VERIFYINTEGRITY_BTN);
             flowLayoutPanel1.Controls.Add(DEBUG_CHECK);
+            flowLayoutPanel1.Controls.Add(LAUNCHGAME);
             flowLayoutPanel1.Controls.Add(EXIT_BTN);
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.Location = new Point(0, 0);
@@ -118,7 +120,7 @@
             // 
             EXIT_BTN.Cursor = Cursors.Hand;
             flowLayoutPanel1.SetFlowBreak(EXIT_BTN, true);
-            EXIT_BTN.Location = new Point(4, 115);
+            EXIT_BTN.Location = new Point(4, 144);
             EXIT_BTN.Margin = new Padding(4, 3, 4, 3);
             EXIT_BTN.Name = "EXIT_BTN";
             EXIT_BTN.Size = new Size(194, 26);
@@ -142,6 +144,16 @@
             Output.Size = new Size(726, 651);
             Output.TabIndex = 4;
             Output.Text = "";
+            // 
+            // LAUNCHGAME
+            // 
+            LAUNCHGAME.Location = new Point(3, 115);
+            LAUNCHGAME.Name = "LAUNCHGAME";
+            LAUNCHGAME.Size = new Size(195, 23);
+            LAUNCHGAME.TabIndex = 5;
+            LAUNCHGAME.Text = "Launch Game";
+            LAUNCHGAME.UseVisualStyleBackColor = true;
+            LAUNCHGAME.Click += LAUNCHGAME_Click;
             // 
             // MAIN
             // 
@@ -176,5 +188,6 @@
         private RichTextBox Output;
         private Button EXIT_BTN;
         private ProgressBar DOWNLOAD_PROG;
+        private Button LAUNCHGAME;
     }
 }

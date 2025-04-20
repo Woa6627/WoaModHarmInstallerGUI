@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
 namespace WoaModHarmInstallerGUI
@@ -111,6 +112,16 @@ namespace WoaModHarmInstallerGUI
         private void EXIT_BTN_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void LAUNCHGAME_Click(object sender, EventArgs e)
+        {
+            if(File.Exists("repo.exe"))
+            {
+                Process process = new Process();
+                process.StartInfo.FileName = "repo.exe";
+                process.Start();
+            }
         }
     }
 }
