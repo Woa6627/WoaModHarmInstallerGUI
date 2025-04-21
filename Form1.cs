@@ -9,15 +9,13 @@ namespace WoaModHarmInstallerGUI
         public static RichTextBox? stdout = null;
         public static CheckBox? debug = null;
         public static ProgressBar? progress = null;
-        static double version = 0.1;
+        private static bool isInstalled = false;
         public MAIN()
         {
             InitializeComponent();
-           
-            if (helper.versionchecker.CheckLatestVersion().Result > version)
-            {
-                AppendSTDOUT("A new update is available for this installer");
-            }
+            if (File.Exists(@"Bepinex\plugins\WoaModHarm.dll")) { isInstalled = true; Install_BTN.Text = "Update"; VERIFYINTEGRITY_BTN.Enabled = true; }
+            else
+            { Install_BTN.Text = "Install"; VERIFYINTEGRITY_BTN.Enabled = false; isInstalled = false; }
             stdout = Output;
             debug = DEBUG_CHECK;
             progress = DOWNLOAD_PROG;
@@ -34,6 +32,9 @@ namespace WoaModHarmInstallerGUI
             await DownloadFiles();
             MoveFilesToLocation();
             progress.Value = 100;
+            isInstalled = true;
+            Install_BTN.Text = "Update";
+            VERIFYINTEGRITY_BTN.Enabled = true;
         }
 
         private static void MoveFilesToLocation()
@@ -122,7 +123,7 @@ namespace WoaModHarmInstallerGUI
 
         private void LAUNCHGAME_Click(object sender, EventArgs e)
         {
-            if(File.Exists("repo.exe"))
+            if (File.Exists("repo.exe"))
             {
                 AppendSTDOUT("Launching REPO.exe");
                 Process process = new Process();
@@ -131,6 +132,24 @@ namespace WoaModHarmInstallerGUI
                 AppendSTDOUT("Successfully launched REPO.exe\nInstaller will now close automatically in 5 seconds");
                 Thread.Sleep(5000);
                 Environment.Exit(0);
+            }
+        }
+
+        private void DEBUG_CHECK_CheckedChanged(object sender, EventArgs e)
+        {
+            if(DEBUG_CHECK.Checked)
+            {
+                if(!VERIFYINTEGRITY_BTN.Enabled)
+                {
+                    VERIFYINTEGRITY_BTN.Enabled = true;
+                }
+            }
+            else
+            {
+                if(VERIFYINTEGRITY_BTN.Enabled && !isInstalled)
+                {
+                    VERIFYINTEGRITY_BTN.Enabled = false;
+                }
             }
         }
     }

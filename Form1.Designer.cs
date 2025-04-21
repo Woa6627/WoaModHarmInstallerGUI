@@ -34,9 +34,9 @@
             DOWNLOAD_PROG = new ProgressBar();
             VERIFYINTEGRITY_BTN = new Button();
             DEBUG_CHECK = new CheckBox();
+            LAUNCHGAME = new Button();
             EXIT_BTN = new Button();
             Output = new RichTextBox();
-            LAUNCHGAME = new Button();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -115,6 +115,17 @@
             DEBUG_CHECK.TabIndex = 2;
             DEBUG_CHECK.Text = "DEBUG MODE";
             DEBUG_CHECK.UseVisualStyleBackColor = true;
+            DEBUG_CHECK.CheckedChanged += DEBUG_CHECK_CheckedChanged;
+            // 
+            // LAUNCHGAME
+            // 
+            LAUNCHGAME.Location = new Point(3, 115);
+            LAUNCHGAME.Name = "LAUNCHGAME";
+            LAUNCHGAME.Size = new Size(195, 23);
+            LAUNCHGAME.TabIndex = 5;
+            LAUNCHGAME.Text = "Launch Game";
+            LAUNCHGAME.UseVisualStyleBackColor = true;
+            LAUNCHGAME.Click += LAUNCHGAME_Click;
             // 
             // EXIT_BTN
             // 
@@ -144,16 +155,6 @@
             Output.Size = new Size(726, 651);
             Output.TabIndex = 4;
             Output.Text = "";
-            // 
-            // LAUNCHGAME
-            // 
-            LAUNCHGAME.Location = new Point(3, 115);
-            LAUNCHGAME.Name = "LAUNCHGAME";
-            LAUNCHGAME.Size = new Size(195, 23);
-            LAUNCHGAME.TabIndex = 5;
-            LAUNCHGAME.Text = "Launch Game";
-            LAUNCHGAME.UseVisualStyleBackColor = true;
-            LAUNCHGAME.Click += LAUNCHGAME_Click;
             // 
             // MAIN
             // 

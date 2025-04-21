@@ -21,7 +21,7 @@ namespace WoaModHarmInstallerGUI.helper
             }catch(Exception ex)
             {
                 MAIN.AppendSTDOUT(ex.Message, true);
-                return "";
+                return 0.0;
             }
         }
     }
