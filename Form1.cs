@@ -9,9 +9,15 @@ namespace WoaModHarmInstallerGUI
         public static RichTextBox? stdout = null;
         public static CheckBox? debug = null;
         public static ProgressBar? progress = null;
+        static double version = 0.1;
         public MAIN()
         {
             InitializeComponent();
+           
+            if (helper.versionchecker.CheckLatestVersion().Result > version)
+            {
+                AppendSTDOUT("A new update is available for this installer");
+            }
             stdout = Output;
             debug = DEBUG_CHECK;
             progress = DOWNLOAD_PROG;
